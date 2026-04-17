@@ -33,7 +33,7 @@ def download_and_replace_image(image_url):
     return False
 
 def get_truecaller_info(phone_number, base_url):
-    api_url = f"https://prod-api.telebothost.com/ownlang/webapp/64472422/apix?number={phone_number}&key=truecallerinfolookupbot-5556909453-IR2s3K"
+    api_url = f"https://prod-api.telebothost.com/ownlang/webapp/64472422/apix?number={phone_number}&key=truecallerinfolookupbot-5556909453-IR2s3K7"
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
