@@ -53,10 +53,8 @@ def get_truecaller_info(phone_number, base_url):
             if original_image:
                 success = download_and_replace_image(original_image)
                 if success:
-                    # আমাদের ডোমেইনের ইমেজ লিঙ্ক তৈরি
                     local_image_url = f"{base_url}get_image"
 
-            # প্রিমিয়াম জেসন স্ট্রাকচার
             premium_response = {
                 "ok": True,
                 "developer": DEVELOPER,
@@ -68,7 +66,7 @@ def get_truecaller_info(phone_number, base_url):
                     "carrier": info.get("carrier", "N/A"),
                     "location": info.get("location", "N/A"),
                     "country": info.get("country", "N/A"),
-                    "image": local_image_url,  # আপনার নিজস্ব এপিআই এর ইমেজ লিঙ্ক
+                    "image": local_image_url,
                     "social": {
                         "facebook": info.get("facebook", "N/A"),
                         "whatsapp": f"https://wa.me/{phone_number.replace('+', '')}",
@@ -91,14 +89,12 @@ def lookup():
     if not number:
         return jsonify({"ok": False, "message": "Number parameter is missing!"}), 400
     
-    # বর্তমান ডোমেইন ইউআরএল গেট করা
     base_url = request.host_url
     result = get_truecaller_info(number, base_url)
     return jsonify(result)
 
 @app.route('/get_image')
 def get_image():
-    """এই রাউটটি সেভ করা ইমেজটি প্রদর্শন করবে"""
     return send_from_directory(TEMP_DIR, TEMP_IMAGE_NAME)
 
 @app.route('/')
@@ -107,7 +103,7 @@ def home():
         "status": "Online",
         "message": "Truecaller Premium Local Image API",
         "developer": DEVELOPER,
-        "endpoint": "/lookup?number="
+        "notice": "Access restricted. Contact developer to enable this service."
     })
 
 if __name__ == '__main__':
