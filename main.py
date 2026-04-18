@@ -107,7 +107,7 @@ def home():
         "status": "Online",
         "message": "Truecaller Premium Local Image API",
         "developer": DEVELOPER,
-        "endpoint": "/lookup?number="
+        "endpoint": "?number="
     })
 
 if __name__ == '__main__':
